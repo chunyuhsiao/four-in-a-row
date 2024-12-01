@@ -1,5 +1,5 @@
 {
-    "num_rows": 6,
-    "num_cols": 7,
-    "win_n": 4
+    "num_rows": 10,
+    "num_cols": 10,
+    "win_n": 10
 }

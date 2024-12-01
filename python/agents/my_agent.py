@@ -354,6 +354,9 @@ class Agent(Agent):
                         cur_zero_list = nonzero (board, m - 1 - i, j, m, n, my_s)
                         board[m - 1 - i][j] = my_s * 2
                         cur_o_list = opponent (board, m - 1 - i, j, m, n, my_s, win_len)
+                        if cur_o_list[0] >= win_len:
+                            board[m - 1 - i][j] = 0
+                            return j
                         if flag == True:
                             cur_list.append(j)
                             mylist = cur_list.copy()
@@ -364,7 +367,7 @@ class Agent(Agent):
                             flag = False
                         else:
                             flag1 = True
-                            if total >= floor (n * m / 3) and total < floor (n * m / 3) + 12:
+                            if total >= floor (n * m / 3) and total <= floor (n * m / 2):
                                 for k in range(4):
                                     if (cur_list[k] < mylist[k] and cur_list[k] != 0):
                                         cur_list.append(j)
@@ -405,9 +408,6 @@ class Agent(Agent):
                                         break
 
                             for k in range(4):
-                                if cur_o_list[k] >= win_len:
-                                    board[m - 1 - i][j] = 0
-                                    return j
                                 if (cur_o_list[k] > o_list[k]):
                                     cur_o_list.append(j)
                                     o_list = cur_o_list.copy()
@@ -435,7 +435,7 @@ class Agent(Agent):
                             board[m - 1 - i][j] = my_s * 2
                             cur_o_list = opponent (board, m - 1 - i, j, m, n, my_s, win_len)
                             if flag == True:
-                                if cur_zero_list[0] >= win_len:
+                                if cur_o_list[0] >= win_len:
                                     board[m - 1 - i][j] = 0
                                     return j
                                 cur_list.append(j)
