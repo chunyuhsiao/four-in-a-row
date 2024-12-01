@@ -64,7 +64,7 @@ def find (board, i, j, m, n, my_s, win_len):
         y -= 1
     a_dia = count
     mylist[3] = a_dia
-    if win_len > 3:
+    if win_len >= 3:
         count = 0
         x = j
         while x < n and (board[i][x] == 0 or board[i][x] == my_s):
