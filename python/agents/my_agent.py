@@ -364,7 +364,7 @@ class Agent(Agent):
                             flag = False
                         else:
                             flag1 = True
-                            if total >= floor (n * m / 3) and total < floor (n * m / 3) + 6:
+                            if total >= floor (n * m / 3) and total < floor (n * m / 3) + 12:
                                 for k in range(4):
                                     if (cur_list[k] < mylist[k] and cur_list[k] != 0):
                                         cur_list.append(j)
